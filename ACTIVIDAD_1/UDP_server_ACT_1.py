@@ -14,5 +14,5 @@ with socket(AF_INET, SOCK_DGRAM) as UDPServerSocket:
 
         print(f'Tiempo desde el cliente: {timeReceived}, tiempo desde el servidor: {timeToSend}')
         
-        timeToSendBytes = timeToSend.to_bytes(8, 'little')
+        timeToSendBytes = int.to_bytes(timeToSend, 'little')
         UDPServerSocket.sendto(timeToSendBytes, clientAddress)
